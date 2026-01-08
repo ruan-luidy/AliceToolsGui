@@ -3,16 +3,17 @@
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:hc="https://handyorg.github.io/handycontrol"
   xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:vm="clr-namespace:AliceToolsGui.Wpf.ViewModels"
   Title="Alice Tools GUI"
   Width="1000"
   Height="700"
-  mc:Ignorable="d"
-  d:DataContext="{d:DesignInstance Type=vm:MainViewModel, IsDesignTimeCreatable=False}"
-  WindowStartupLocation="CenterScreen">
+  d:DataContext="{d:DesignInstance Type=vm:MainViewModel,
+                                   IsDesignTimeCreatable=False}"
+  WindowStartupLocation="CenterScreen"
+  mc:Ignorable="d">
 
   <Grid Margin="20">
     <Grid.RowDefinitions>
@@ -56,7 +57,6 @@
 
         <Button
           Grid.Column="2"
-          Padding="15,8"
           Command="{Binding CheckUpdatesCommand}"
           Content="Verificar Atualizações"
           Style="{StaticResource ButtonPrimary}" />
@@ -64,41 +64,45 @@
     </Border>
 
     <!--  Main Content Tabs  -->
-    <TabControl
+    <hc:TabControl
       Grid.Row="1"
+      hc:BorderElement.CornerRadius="8"
+      Background="{DynamicResource RegionBrush}"
+      BorderBrush="{DynamicResource BorderBrush}"
+      BorderThickness="1"
       SelectedIndex="{Binding SelectedTabIndex}"
-      Style="{StaticResource TabControlCapsule}">
-
-      <!--  AR Archive Tab  -->
-      <TabItem Header="AR Archive">
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-          <ContentControl Content="{Binding ArOperationsViewModel}" />
-        </ScrollViewer>
-      </TabItem>
+      SnapsToDevicePixels="True">
 
       <!--  AIN File Tab  -->
-      <TabItem Header="AIN File">
+      <hc:TabItem Header="AIN File">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
           <ContentControl Content="{Binding AinOperationsViewModel}" />
         </ScrollViewer>
-      </TabItem>
+      </hc:TabItem>
+
+      <!--  AR Archive Tab  -->
+      <hc:TabItem Header="AR Archive">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+          <ContentControl Content="{Binding ArOperationsViewModel}" />
+        </ScrollViewer>
+      </hc:TabItem>
 
       <!--  EX File Tab  -->
-      <TabItem Header="EX File">
+      <hc:TabItem Header="EX File">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
           <ContentControl Content="{Binding ExOperationsViewModel}" />
         </ScrollViewer>
-      </TabItem>
+      </hc:TabItem>
 
       <!--  ACX File Tab  -->
-      <TabItem Header="ACX File">
+      <hc:TabItem Header="ACX File">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
           <ContentControl Content="{Binding AcxOperationsViewModel}" />
         </ScrollViewer>
-      </TabItem>
+      </hc:TabItem>
 
       <!--  Configurações Tab  -->
-      <TabItem Header="Configurações">
+      <hc:TabItem Header="Configurações">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
           <StackPanel Margin="20">
             <TextBlock
@@ -118,10 +122,7 @@
                 HorizontalAlignment="Left"
                 hc:InfoElement.Placeholder="Selecione o caminho..."
                 Text="{Binding AliceToolsPath, UpdateSourceTrigger=PropertyChanged}" />
-              <Button
-                Padding="15,8"
-                Command="{Binding BrowseAliceToolsPathCommand}"
-                Content="Procurar" />
+              <Button Command="{Binding BrowseAliceToolsPathCommand}" Content="Procurar" />
             </hc:UniformSpacingPanel>
 
             <!--  Encoding Selection  -->
@@ -138,8 +139,8 @@
             </hc:UniformSpacingPanel>
           </StackPanel>
         </ScrollViewer>
-      </TabItem>
-    </TabControl>
+      </hc:TabItem>
+    </hc:TabControl>
 
     <!--  Footer / Status Bar  -->
     <Border

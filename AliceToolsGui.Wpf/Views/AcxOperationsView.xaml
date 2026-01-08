@@ -3,11 +3,12 @@
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:hc="https://handyorg.github.io/handycontrol"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:vm="clr-namespace:AliceToolsGui.Wpf.ViewModels"
-  mc:Ignorable="d"
-  d:DataContext="{d:DesignInstance Type=vm:AcxOperationsViewModel, IsDesignTimeCreatable=False}">
+  d:DataContext="{d:DesignInstance Type=vm:AcxOperationsViewModel,
+                                   IsDesignTimeCreatable=False}"
+  mc:Ignorable="d">
 
   <StackPanel Margin="20">
     <TextBlock
@@ -37,10 +38,7 @@
             Width="300"
             hc:InfoElement.Placeholder="Selecione o arquivo ACX..."
             Text="{Binding AcxFilePath, UpdateSourceTrigger=PropertyChanged}" />
-          <Button
-            Padding="15,8"
-            Command="{Binding BrowseAcxFileCommand}"
-            Content="Procurar" />
+          <Button Command="{Binding BrowseAcxFileCommand}" Content="Procurar" />
         </hc:UniformSpacingPanel>
 
         <hc:UniformSpacingPanel Margin="0,0,0,10" Spacing="10">
@@ -52,10 +50,7 @@
             Width="300"
             hc:InfoElement.Placeholder="Selecione a pasta de saída..."
             Text="{Binding DumpOutputPath, UpdateSourceTrigger=PropertyChanged}" />
-          <Button
-            Padding="15,8"
-            Command="{Binding BrowseDumpOutputCommand}"
-            Content="Procurar" />
+          <Button Command="{Binding BrowseDumpOutputCommand}" Content="Procurar" />
         </hc:UniformSpacingPanel>
 
         <Button
@@ -89,10 +84,7 @@
             Width="300"
             hc:InfoElement.Placeholder="Selecione a pasta..."
             Text="{Binding BuildSourcePath, UpdateSourceTrigger=PropertyChanged}" />
-          <Button
-            Padding="15,8"
-            Command="{Binding BrowseBuildSourceCommand}"
-            Content="Procurar" />
+          <Button Command="{Binding BrowseBuildSourceCommand}" Content="Procurar" />
         </hc:UniformSpacingPanel>
 
         <hc:UniformSpacingPanel Margin="0,0,0,10" Spacing="10">
@@ -104,10 +96,7 @@
             Width="300"
             hc:InfoElement.Placeholder="Selecione o arquivo de saída..."
             Text="{Binding BuildOutputPath, UpdateSourceTrigger=PropertyChanged}" />
-          <Button
-            Padding="15,8"
-            Command="{Binding BrowseBuildOutputCommand}"
-            Content="Procurar" />
+          <Button Command="{Binding BrowseBuildOutputCommand}" Content="Procurar" />
         </hc:UniformSpacingPanel>
 
         <Button

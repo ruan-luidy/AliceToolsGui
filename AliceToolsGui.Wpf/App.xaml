@@ -3,12 +3,18 @@
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:hc="https://handyorg.github.io/handycontrol"
-  StartupUri="Views/MainWindow.xaml">
+  xmlns:converters="clr-namespace:AliceToolsGui.Wpf.Converters">
   <Application.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <hc:Theme Skin="Default" />
+        <ResourceDictionary Source="Resources/ViewModelLocator.xaml" />
       </ResourceDictionary.MergedDictionaries>
+      
+      <!-- Custom Converters -->
+      <converters:Long2VisibilityConverter x:Key="Long2VisibilityConverter" />
+      <converters:String2VisibilityConverter x:Key="String2VisibilityConverter" />
+      <converters:Boolean2VisibilityConverter x:Key="Boolean2VisibilityConverter" />
     </ResourceDictionary>
   </Application.Resources>
 </Application>
