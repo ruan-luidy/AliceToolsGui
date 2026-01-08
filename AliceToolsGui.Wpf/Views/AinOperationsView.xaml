@@ -38,7 +38,6 @@
             hc:InfoElement.Placeholder="Selecione o arquivo AIN..."
             Text="{Binding AinFilePath, UpdateSourceTrigger=PropertyChanged}" />
           <Button
-            Padding="15,8"
             Command="{Binding BrowseAinFileCommand}"
             Content="Procurar" />
         </hc:UniformSpacingPanel>
@@ -53,14 +52,12 @@
             hc:InfoElement.Placeholder="Selecione a pasta de saída..."
             Text="{Binding DumpOutputPath, UpdateSourceTrigger=PropertyChanged}" />
           <Button
-            Padding="15,8"
             Command="{Binding BrowseDumpOutputCommand}"
             Content="Procurar" />
         </hc:UniformSpacingPanel>
 
         <Button
           Margin="0,10,0,0"
-          Padding="20,10"
           HorizontalAlignment="Left"
           Command="{Binding DumpAinCommand}"
           Content="Dump"
@@ -90,14 +87,12 @@
             hc:InfoElement.Placeholder="Selecione o arquivo AIN..."
             Text="{Binding AinFilePath, UpdateSourceTrigger=PropertyChanged}" />
           <Button
-            Padding="15,8"
             Command="{Binding BrowseAinFileCommand}"
             Content="Procurar" />
         </hc:UniformSpacingPanel>
 
         <Button
           Margin="0,10,0,0"
-          Padding="20,10"
           HorizontalAlignment="Left"
           Command="{Binding EditAinCommand}"
           Content="Editar"
@@ -127,7 +122,6 @@
             hc:InfoElement.Placeholder="Selecione o primeiro arquivo..."
             Text="{Binding CompareFilePath, UpdateSourceTrigger=PropertyChanged}" />
           <Button
-            Padding="15,8"
             Command="{Binding BrowseAinFileCommand}"
             Content="Procurar" />
         </hc:UniformSpacingPanel>
@@ -142,14 +136,12 @@
             hc:InfoElement.Placeholder="Selecione o segundo arquivo..."
             Text="{Binding CompareWithFilePath, UpdateSourceTrigger=PropertyChanged}" />
           <Button
-            Padding="15,8"
             Command="{Binding BrowseAinFileCommand}"
             Content="Procurar" />
         </hc:UniformSpacingPanel>
 
         <Button
           Margin="0,10,0,0"
-          Padding="20,10"
           HorizontalAlignment="Left"
           Command="{Binding CompareAinCommand}"
           Content="Comparar"
