@@ -1,7 +1,8 @@
 ﻿using Microsoft.Win32;
-using System.Windows.Forms;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
+using FolderBrowserDialog = System.Windows.Forms.FolderBrowserDialog;
+using DialogResult = System.Windows.Forms.DialogResult;
 
 namespace AliceToolsGui.Wpf.Services;
 

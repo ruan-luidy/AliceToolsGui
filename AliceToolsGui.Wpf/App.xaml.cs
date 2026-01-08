@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Windows;
+using System.IO;
 using AliceToolsGui.Wpf.Services;
 using AliceToolsGui.Wpf.ViewModels;
 using AliceToolsGui.Wpf.Views;
@@ -50,7 +50,7 @@ public partial class App : Application
         .Build();
   }
 
-  protected override async void OnStartup(StartupEventArgs e)
+  protected override async void OnStartup(System.Windows.StartupEventArgs e)
   {
     await _host.StartAsync();
 
@@ -61,7 +61,7 @@ public partial class App : Application
     base.OnStartup(e);
   }
 
-  protected override async void OnExit(ExitEventArgs e)
+  protected override async void OnExit(System.Windows.ExitEventArgs e)
   {
     using (_host)
     {

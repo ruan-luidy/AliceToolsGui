@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using System.Windows.Data;
+using System.Runtime.CompilerServices;
 using System.Windows.Markup;
 using AliceToolsGui.Wpf.Services;
 
@@ -30,7 +30,7 @@ public class LocalizationExtension : MarkupExtension
     var binding = new Binding("Value")
     {
       Source = new LocalizedString(Key),
-      Mode = BindingMode.OneWay
+      Mode = System.Windows.Data.BindingMode.OneWay
     };
 
     return binding.ProvideValue(serviceProvider);
@@ -44,6 +44,7 @@ public class LocalizedString : INotifyPropertyChanged
 {
   private readonly string _key;
   private static ILocalizationService? _localizationService;
+  private static event PropertyChangedEventHandler? StaticPropertyChanged;
 
   public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -52,7 +53,7 @@ public class LocalizedString : INotifyPropertyChanged
   static LocalizedString()
   {
     // O serviço será injetado pela aplicação
-    var app = System.Windows.Application.Current as App;
+    var app = Application.Current as App;
     if (app != null)
     {
       _localizationService = App.GetService<ILocalizationService>();
@@ -66,12 +67,18 @@ public class LocalizedString : INotifyPropertyChanged
   public LocalizedString(string key)
   {
     _key = key;
+    StaticPropertyChanged += OnStaticPropertyChanged;
+  }
+
+  private void OnStaticPropertyChanged(object? sender, PropertyChangedEventArgs e)
+  {
+    PropertyChanged?.Invoke(this, e);
   }
 
   private static void OnLanguageChanged(object? sender, EventArgs e)
   {
     // Notifica todas as instâncias para atualizar
-    PropertyChanged?.Invoke(null, new PropertyChangedEventArgs(nameof(Value)));
+    StaticPropertyChanged?.Invoke(null, new PropertyChangedEventArgs(nameof(Value)));
   }
 
   private void OnPropertyChanged([CallerMemberName] string? propertyName = null)

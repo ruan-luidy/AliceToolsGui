@@ -13,9 +13,9 @@ public class EncodingService : IEncodingService
             Encoding.UTF8,
             Encoding.Unicode,
             Encoding.ASCII,
-            Encoding.GetEncoding("Shift-JIS"),
+            // Encoding.GetEncoding("Shift-JIS"),
             Encoding.GetEncoding("ISO-8859-1"),
-            Encoding.GetEncoding("Windows-1252")
+            // Encoding.GetEncoding("Windows-1252")
         };
   }
 
