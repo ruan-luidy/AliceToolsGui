@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- Application -->
+  <data name="AppTitle" xml:space="preserve">
+    <value>Alice Tools GUI</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="CheckUpdates" xml:space="preserve">
+    <value>Check Updates</value>
+  </data>
+
+  <!-- Common -->
+  <data name="Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Information</value>
+  </data>
+
+  <!-- Tabs -->
+  <data name="TabArArchive" xml:space="preserve">
+    <value>AR Archive</value>
+  </data>
+  <data name="TabAinFile" xml:space="preserve">
+    <value>AIN File</value>
+  </data>
+  <data name="TabExFile" xml:space="preserve">
+    <value>EX File</value>
+  </data>
+  <data name="TabAcxFile" xml:space="preserve">
+    <value>ACX File</value>
+  </data>
+  <data name="TabSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+
+  <!-- AR Operations -->
+  <data name="ArOperationsTitle" xml:space="preserve">
+    <value>AR Archive Operations</value>
+  </data>
+  <data name="ArListContents" xml:space="preserve">
+    <value>List Archive Contents</value>
+  </data>
+  <data name="ArExtract" xml:space="preserve">
+    <value>Extract AR Archive</value>
+  </data>
+  <data name="ArPack" xml:space="preserve">
+    <value>Pack AR Archive</value>
+  </data>
+  <data name="ArFile" xml:space="preserve">
+    <value>AR File:</value>
+  </data>
+  <data name="OutputFolder" xml:space="preserve">
+    <value>Output Folder:</value>
+  </data>
+  <data name="SourceFolder" xml:space="preserve">
+    <value>Source Folder:</value>
+  </data>
+  <data name="OutputFile" xml:space="preserve">
+    <value>Output File:</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="Extract" xml:space="preserve">
+    <value>Extract</value>
+  </data>
+  <data name="Pack" xml:space="preserve">
+    <value>Pack</value>
+  </data>
+
+  <!-- AIN Operations -->
+  <data name="AinOperationsTitle" xml:space="preserve">
+    <value>AIN File Operations</value>
+  </data>
+  <data name="AinDump" xml:space="preserve">
+    <value>Dump AIN File</value>
+  </data>
+  <data name="AinEdit" xml:space="preserve">
+    <value>Edit AIN File</value>
+  </data>
+  <data name="AinCompare" xml:space="preserve">
+    <value>Compare AIN Files</value>
+  </data>
+  <data name="AinFile" xml:space="preserve">
+    <value>AIN File:</value>
+  </data>
+  <data name="Dump" xml:space="preserve">
+    <value>Dump</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Compare" xml:space="preserve">
+    <value>Compare</value>
+  </data>
+  <data name="File1" xml:space="preserve">
+    <value>File 1:</value>
+  </data>
+  <data name="File2" xml:space="preserve">
+    <value>File 2:</value>
+  </data>
+
+  <!-- EX Operations -->
+  <data name="ExOperationsTitle" xml:space="preserve">
+    <value>EX File Operations</value>
+  </data>
+  <data name="ExDump" xml:space="preserve">
+    <value>Dump EX File</value>
+  </data>
+  <data name="ExBuild" xml:space="preserve">
+    <value>Build EX File</value>
+  </data>
+  <data name="ExCompare" xml:space="preserve">
+    <value>Compare EX Files</value>
+  </data>
+  <data name="ExFile" xml:space="preserve">
+    <value>EX File:</value>
+  </data>
+  <data name="Build" xml:space="preserve">
+    <value>Build</value>
+  </data>
+
+  <!-- ACX Operations -->
+  <data name="AcxOperationsTitle" xml:space="preserve">
+    <value>ACX File Operations</value>
+  </data>
+  <data name="AcxDump" xml:space="preserve">
+    <value>Dump ACX File</value>
+  </data>
+  <data name="AcxBuild" xml:space="preserve">
+    <value>Build ACX File</value>
+  </data>
+  <data name="AcxFile" xml:space="preserve">
+    <value>ACX File:</value>
+  </data>
+
+  <!-- Settings -->
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="AliceToolsPath" xml:space="preserve">
+    <value>Alice Tools Path:</value>
+  </data>
+  <data name="DefaultEncoding" xml:space="preserve">
+    <value>Default Encoding:</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+
+  <!-- Messages -->
+  <data name="SelectArFile" xml:space="preserve">
+    <value>Please select an AR file first.</value>
+  </data>
+  <data name="SelectAinFile" xml:space="preserve">
+    <value>Please select an AIN file.</value>
+  </data>
+  <data name="SelectExFile" xml:space="preserve">
+    <value>Please select an EX file.</value>
+  </data>
+  <data name="SelectAcxFile" xml:space="preserve">
+    <value>Please select an ACX file.</value>
+  </data>
+  <data name="FillRequiredFields" xml:space="preserve">
+    <value>Please fill all required fields.</value>
+  </data>
+  <data name="SelectBothFiles" xml:space="preserve">
+    <value>Please select both files for comparison.</value>
+  </data>
+  <data name="OperationCompleted" xml:space="preserve">
+    <value>Operation completed successfully!</value>
+  </data>
+  <data name="OperationFailed" xml:space="preserve">
+    <value>Operation failed.</value>
+  </data>
+  <data name="Extracting" xml:space="preserve">
+    <value>Extracting...</value>
+  </data>
+  <data name="Packing" xml:space="preserve">
+    <value>Packing...</value>
+  </data>
+  <data name="Dumping" xml:space="preserve">
+    <value>Dumping...</value>
+  </data>
+  <data name="Building" xml:space="preserve">
+    <value>Building...</value>
+  </data>
+  <data name="Comparing" xml:space="preserve">
+    <value>Comparing...</value>
+  </data>
+  <data name="ListingContents" xml:space="preserve">
+    <value>Listing contents...</value>
+  </data>
+  <data name="ItemsFound" xml:space="preserve">
+    <value>{0} items found</value>
+  </data>
+  <data name="CheckingUpdates" xml:space="preserve">
+    <value>Checking for updates...</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>Update Available</value>
+  </data>
+  <data name="UpdateAvailableMessage" xml:space="preserve">
+    <value>A new version is available. Download now?</value>
+  </data>
+  <data name="UpToDate" xml:space="preserve">
+    <value>Up to Date</value>
+  </data>
+  <data name="UpToDateMessage" xml:space="preserve">
+    <value>You are using the latest version.</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="SelectFile" xml:space="preserve">
+    <value>Select file...</value>
+  </data>
+  <data name="SelectFolder" xml:space="preserve">
+    <value>Select folder...</value>
+  </data>
+</root>

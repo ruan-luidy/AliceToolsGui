@@ -1,0 +1,161 @@
+﻿<UserControl
+  x:Class="AliceToolsGui.Wpf.Views.ArOperationsView"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:hc="https://handyorg.github.io/handycontrol"
+  xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+  xmlns:vm="clr-namespace:AliceToolsGui.Wpf.ViewModels"
+  d:DataContext="{d:DesignInstance Type=vm:ArOperationsViewModel}">
+
+  <StackPanel Margin="20">
+    <TextBlock
+      Margin="0,0,0,20"
+      FontSize="20"
+      FontWeight="Bold"
+      Text="Operações de Arquivo AR" />
+
+    <!--  List Archive Contents  -->
+    <hc:Card
+      Margin="0,0,0,15"
+      Padding="15"
+      BorderThickness="1">
+      <StackPanel>
+        <TextBlock
+          Margin="0,0,0,10"
+          FontSize="16"
+          FontWeight="SemiBold"
+          Text="Listar Conteúdo do Arquivo" />
+
+        <hc:UniformSpacingPanel Margin="0,0,0,10" Spacing="10">
+          <TextBox
+            Width="400"
+            hc:InfoElement.Placeholder="Selecione o arquivo AR..."
+            Text="{Binding ArchiveFilePath, UpdateSourceTrigger=PropertyChanged}" />
+          <Button
+            Padding="15,8"
+            Command="{Binding BrowseArchiveFileCommand}"
+            Content="Procurar" />
+          <Button
+            Padding="15,8"
+            Command="{Binding ListArchiveContentsCommand}"
+            Content="Listar"
+            Style="{StaticResource ButtonPrimary}" />
+        </hc:UniformSpacingPanel>
+
+        <ListBox
+          Height="150"
+          ItemsSource="{Binding ArchiveContents}"
+          Visibility="{Binding ArchiveContents.Count, Converter={StaticResource Long2VisibilityConverter}}" />
+      </StackPanel>
+    </hc:Card>
+
+    <!--  Extract Archive  -->
+    <hc:Card
+      Margin="0,0,0,15"
+      Padding="15"
+      BorderThickness="1">
+      <StackPanel>
+        <TextBlock
+          Margin="0,0,0,10"
+          FontSize="16"
+          FontWeight="SemiBold"
+          Text="Extrair Arquivo AR" />
+
+        <hc:UniformSpacingPanel Margin="0,0,0,10" Spacing="10">
+          <TextBlock
+            Width="100"
+            VerticalAlignment="Center"
+            Text="Arquivo AR:" />
+          <TextBox
+            Width="300"
+            hc:InfoElement.Placeholder="Selecione o arquivo AR..."
+            Text="{Binding ArchiveFilePath, UpdateSourceTrigger=PropertyChanged}" />
+          <Button
+            Padding="15,8"
+            Command="{Binding BrowseArchiveFileCommand}"
+            Content="Procurar" />
+        </hc:UniformSpacingPanel>
+
+        <hc:UniformSpacingPanel Margin="0,0,0,10" Spacing="10">
+          <TextBlock
+            Width="100"
+            VerticalAlignment="Center"
+            Text="Pasta de Saída:" />
+          <TextBox
+            Width="300"
+            hc:InfoElement.Placeholder="Selecione a pasta de saída..."
+            Text="{Binding ExtractOutputPath, UpdateSourceTrigger=PropertyChanged}" />
+          <Button
+            Padding="15,8"
+            Command="{Binding BrowseExtractOutputCommand}"
+            Content="Procurar" />
+        </hc:UniformSpacingPanel>
+
+        <Button
+          Margin="0,10,0,0"
+          Padding="20,10"
+          HorizontalAlignment="Left"
+          Command="{Binding ExtractArchiveCommand}"
+          Content="Extrair"
+          Style="{StaticResource ButtonSuccess}" />
+      </StackPanel>
+    </hc:Card>
+
+    <!--  Pack Archive  -->
+    <hc:Card Padding="15" BorderThickness="1">
+      <StackPanel>
+        <TextBlock
+          Margin="0,0,0,10"
+          FontSize="16"
+          FontWeight="SemiBold"
+          Text="Empacotar Arquivo AR" />
+
+        <hc:UniformSpacingPanel Margin="0,0,0,10" Spacing="10">
+          <TextBlock
+            Width="100"
+            VerticalAlignment="Center"
+            Text="Pasta de Origem:" />
+          <TextBox
+            Width="300"
+            hc:InfoElement.Placeholder="Selecione a pasta..."
+            Text="{Binding PackSourcePath, UpdateSourceTrigger=PropertyChanged}" />
+          <Button
+            Padding="15,8"
+            Command="{Binding BrowsePackSourceCommand}"
+            Content="Procurar" />
+        </hc:UniformSpacingPanel>
+
+        <hc:UniformSpacingPanel Margin="0,0,0,10" Spacing="10">
+          <TextBlock
+            Width="100"
+            VerticalAlignment="Center"
+            Text="Arquivo de Saída:" />
+          <TextBox
+            Width="300"
+            hc:InfoElement.Placeholder="Selecione o arquivo de saída..."
+            Text="{Binding PackOutputPath, UpdateSourceTrigger=PropertyChanged}" />
+          <Button
+            Padding="15,8"
+            Command="{Binding BrowsePackOutputCommand}"
+            Content="Procurar" />
+        </hc:UniformSpacingPanel>
+
+        <Button
+          Margin="0,10,0,0"
+          Padding="20,10"
+          HorizontalAlignment="Left"
+          Command="{Binding PackArchiveCommand}"
+          Content="Empacotar"
+          Style="{StaticResource ButtonSuccess}" />
+      </StackPanel>
+    </hc:Card>
+
+    <!--  Status  -->
+    <TextBlock
+      Margin="0,15,0,0"
+      FontWeight="SemiBold"
+      Foreground="{DynamicResource PrimaryBrush}"
+      Text="{Binding StatusMessage}" />
+  </StackPanel>
+</UserControl>

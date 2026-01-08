@@ -1,0 +1,173 @@
+﻿<hc:Window
+  x:Class="AliceToolsGui.Wpf.Views.MainWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:hc="https://handyorg.github.io/handycontrol"
+  xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+  xmlns:vm="clr-namespace:AliceToolsGui.Wpf.ViewModels"
+  Title="Alice Tools GUI"
+  Width="1000"
+  Height="700"
+  d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
+  WindowStartupLocation="CenterScreen">
+
+  <hc:Window.Resources>
+    <Style BasedOn="{StaticResource TabItemCapsule}" TargetType="TabItem">
+      <Setter Property="Padding" Value="20,10" />
+      <Setter Property="FontSize" Value="14" />
+    </Style>
+  </hc:Window.Resources>
+
+  <Grid Margin="20">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <!--  Header  -->
+    <Border
+      Grid.Row="0"
+      Margin="0,0,0,15"
+      Padding="20,15"
+      Background="{DynamicResource RegionBrush}"
+      CornerRadius="8">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <iconPacks:PackIconPhosphorIcons
+          Width="32"
+          Height="32"
+          Margin="0,0,15,0"
+          VerticalAlignment="Center"
+          Kind="Gear" />
+
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+          <TextBlock
+            FontSize="20"
+            FontWeight="Bold"
+            Text="Alice Tools GUI" />
+          <TextBlock
+            Margin="0,2,0,0"
+            FontSize="12"
+            Opacity="0.7"
+            Text="{Binding StatusMessage}" />
+        </StackPanel>
+
+        <Button
+          Grid.Column="2"
+          Padding="15,8"
+          Command="{Binding CheckUpdatesCommand}"
+          Content="Verificar Atualizações"
+          Style="{StaticResource ButtonPrimary}" />
+      </Grid>
+    </Border>
+
+    <!--  Main Content Tabs  -->
+    <TabControl
+      Grid.Row="1"
+      SelectedIndex="{Binding SelectedTabIndex}"
+      Style="{StaticResource TabControlCapsule}">
+
+      <!--  AR Archive Tab  -->
+      <TabItem Header="AR Archive">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+          <ContentControl Content="{Binding ArOperationsViewModel}" />
+        </ScrollViewer>
+      </TabItem>
+
+      <!--  AIN File Tab  -->
+      <TabItem Header="AIN File">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+          <ContentControl Content="{Binding AinOperationsViewModel}" />
+        </ScrollViewer>
+      </TabItem>
+
+      <!--  EX File Tab  -->
+      <TabItem Header="EX File">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+          <ContentControl Content="{Binding ExOperationsViewModel}" />
+        </ScrollViewer>
+      </TabItem>
+
+      <!--  ACX File Tab  -->
+      <TabItem Header="ACX File">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+          <ContentControl Content="{Binding AcxOperationsViewModel}" />
+        </ScrollViewer>
+      </TabItem>
+
+      <!--  Configurações Tab  -->
+      <TabItem Header="Configurações">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+          <StackPanel Margin="20">
+            <TextBlock
+              Margin="0,0,0,20"
+              FontSize="18"
+              FontWeight="Bold"
+              Text="Configurações" />
+
+            <!--  Alice Tools Path  -->
+            <hc:UniformSpacingPanel Margin="0,0,0,15" Spacing="10">
+              <TextBlock
+                Width="150"
+                VerticalAlignment="Center"
+                Text="Caminho Alice Tools:" />
+              <TextBox
+                Width="400"
+                HorizontalAlignment="Left"
+                hc:InfoElement.Placeholder="Selecione o caminho..."
+                Text="{Binding AliceToolsPath, UpdateSourceTrigger=PropertyChanged}" />
+              <Button
+                Padding="15,8"
+                Command="{Binding BrowseAliceToolsPathCommand}"
+                Content="Procurar" />
+            </hc:UniformSpacingPanel>
+
+            <!--  Encoding Selection  -->
+            <hc:UniformSpacingPanel Margin="0,0,0,15" Spacing="10">
+              <TextBlock
+                Width="150"
+                VerticalAlignment="Center"
+                Text="Encoding Padrão:" />
+              <ComboBox
+                Width="200"
+                HorizontalAlignment="Left"
+                ItemsSource="{Binding AvailableEncodings}"
+                SelectedItem="{Binding SelectedEncoding}" />
+            </hc:UniformSpacingPanel>
+          </StackPanel>
+        </ScrollViewer>
+      </TabItem>
+    </TabControl>
+
+    <!--  Footer / Status Bar  -->
+    <Border
+      Grid.Row="2"
+      Margin="0,15,0,0"
+      Padding="15,10"
+      Background="{DynamicResource RegionBrush}"
+      CornerRadius="8">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock VerticalAlignment="Center" Text="{Binding FooterMessage}" />
+
+        <ProgressBar
+          Grid.Column="1"
+          Width="150"
+          Height="20"
+          IsIndeterminate="{Binding IsBusy}"
+          Visibility="{Binding IsBusy, Converter={StaticResource Boolean2VisibilityConverter}}" />
+      </Grid>
+    </Border>
+  </Grid>
+</hc:Window>

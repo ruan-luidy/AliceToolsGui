@@ -1,0 +1,150 @@
+﻿<UserControl
+  x:Class="AliceToolsGui.Wpf.Views.AcxOperationsView"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:hc="https://handyorg.github.io/handycontrol"
+  xmlns:vm="clr-namespace:AliceToolsGui.Wpf.ViewModels"
+  d:DataContext="{d:DesignInstance Type=vm:AcxOperationsViewModel}">
+
+  <StackPanel Margin="20">
+    <TextBlock
+      Margin="0,0,0,20"
+      FontSize="20"
+      FontWeight="Bold"
+      Text="Operações de Arquivo ACX" />
+
+    <!--  Dump ACX  -->
+    <hc:Card
+      Margin="0,0,0,15"
+      Padding="15"
+      BorderThickness="1">
+      <StackPanel>
+        <TextBlock
+          Margin="0,0,0,10"
+          FontSize="16"
+          FontWeight="SemiBold"
+          Text="Fazer Dump do Arquivo ACX" />
+
+        <hc:UniformSpacingPanel Margin="0,0,0,10" Spacing="10">
+          <TextBlock
+            Width="100"
+            VerticalAlignment="Center"
+            Text="Arquivo ACX:" />
+          <TextBox
+            Width="300"
+            hc:InfoElement.Placeholder="Selecione o arquivo ACX..."
+            Text="{Binding AcxFilePath, UpdateSourceTrigger=PropertyChanged}" />
+          <Button
+            Padding="15,8"
+            Command="{Binding BrowseAcxFileCommand}"
+            Content="Procurar" />
+        </hc:UniformSpacingPanel>
+
+        <hc:UniformSpacingPanel Margin="0,0,0,10" Spacing="10">
+          <TextBlock
+            Width="100"
+            VerticalAlignment="Center"
+            Text="Pasta de Saída:" />
+          <TextBox
+            Width="300"
+            hc:InfoElement.Placeholder="Selecione a pasta de saída..."
+            Text="{Binding DumpOutputPath, UpdateSourceTrigger=PropertyChanged}" />
+          <Button
+            Padding="15,8"
+            Command="{Binding BrowseDumpOutputCommand}"
+            Content="Procurar" />
+        </hc:UniformSpacingPanel>
+
+        <Button
+          Margin="0,10,0,0"
+          Padding="20,10"
+          HorizontalAlignment="Left"
+          Command="{Binding DumpAcxCommand}"
+          Content="Dump"
+          Style="{StaticResource ButtonPrimary}" />
+      </StackPanel>
+    </hc:Card>
+
+    <!--  Build ACX  -->
+    <hc:Card
+      Margin="0,0,0,15"
+      Padding="15"
+      BorderThickness="1">
+      <StackPanel>
+        <TextBlock
+          Margin="0,0,0,10"
+          FontSize="16"
+          FontWeight="SemiBold"
+          Text="Construir Arquivo ACX" />
+
+        <hc:UniformSpacingPanel Margin="0,0,0,10" Spacing="10">
+          <TextBlock
+            Width="100"
+            VerticalAlignment="Center"
+            Text="Pasta de Origem:" />
+          <TextBox
+            Width="300"
+            hc:InfoElement.Placeholder="Selecione a pasta..."
+            Text="{Binding BuildSourcePath, UpdateSourceTrigger=PropertyChanged}" />
+          <Button
+            Padding="15,8"
+            Command="{Binding BrowseBuildSourceCommand}"
+            Content="Procurar" />
+        </hc:UniformSpacingPanel>
+
+        <hc:UniformSpacingPanel Margin="0,0,0,10" Spacing="10">
+          <TextBlock
+            Width="100"
+            VerticalAlignment="Center"
+            Text="Arquivo de Saída:" />
+          <TextBox
+            Width="300"
+            hc:InfoElement.Placeholder="Selecione o arquivo de saída..."
+            Text="{Binding BuildOutputPath, UpdateSourceTrigger=PropertyChanged}" />
+          <Button
+            Padding="15,8"
+            Command="{Binding BrowseBuildOutputCommand}"
+            Content="Procurar" />
+        </hc:UniformSpacingPanel>
+
+        <Button
+          Margin="0,10,0,0"
+          Padding="20,10"
+          HorizontalAlignment="Left"
+          Command="{Binding BuildAcxCommand}"
+          Content="Construir"
+          Style="{StaticResource ButtonSuccess}" />
+      </StackPanel>
+    </hc:Card>
+
+    <!--  Result  -->
+    <hc:Card
+      Padding="15"
+      BorderThickness="1"
+      Visibility="{Binding Result, Converter={StaticResource String2VisibilityConverter}}">
+      <StackPanel>
+        <TextBlock
+          Margin="0,0,0,10"
+          FontSize="16"
+          FontWeight="SemiBold"
+          Text="Resultado" />
+
+        <TextBox
+          Height="200"
+          AcceptsReturn="True"
+          IsReadOnly="True"
+          Text="{Binding Result, Mode=OneWay}"
+          TextWrapping="Wrap"
+          VerticalScrollBarVisibility="Auto" />
+      </StackPanel>
+    </hc:Card>
+
+    <!--  Status  -->
+    <TextBlock
+      Margin="0,15,0,0"
+      FontWeight="SemiBold"
+      Foreground="{DynamicResource PrimaryBrush}"
+      Text="{Binding StatusMessage}" />
+  </StackPanel>
+</UserControl>
